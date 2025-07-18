@@ -2,6 +2,8 @@
 
 PRD(제품 요구사항 문서)를 기반으로 설계된 SQLite 데이터베이스 스키마입니다.
 
+## 스키마
+
 ```sql
 -- 1. 언어 (Languages) 테이블
 CREATE TABLE Languages (
