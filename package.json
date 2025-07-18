@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@gitlab.a2tec.co.kr:b_iot-cloud/stpro-language-management.git",
-  "author": "kenux <kenux.yun@gmail.com>",
+  "author": "skyun <skyun@a2tec.co.kr>",
   "license": "MIT",
   "scripts": {
     "start": "node dist/index.js",
