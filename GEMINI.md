@@ -12,14 +12,19 @@
 
 
 ## 기술 스택
-### 백엔드
+
+### backend
 - node.js
-- javascript
-- express
+- typescript
+- express.js
+- SQLite
 
 ### frontend
 - html
 - javascript
 - css : tailwindcss 사용
+
+### package manager
+- yarn
 
 

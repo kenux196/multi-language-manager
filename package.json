@@ -1,0 +1,26 @@
+{
+  "name": "stpro-language-management",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitlab.a2tec.co.kr:b_iot-cloud/stpro-language-management.git",
+  "author": "kenux <kenux.yun@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch src --exec ts-node src/index.ts",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.14",
+    "@types/sqlite3": "^5.1.0",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10",
+    "sqlite3": "^5.1.7",
+    "tailwindcss": "^4.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
