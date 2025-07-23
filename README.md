@@ -1,92 +1,51 @@
 # STPro Language Management
 
-STPro 다국어 관리용 서버
 
-## Getting started
+# STPro 다국어 관리 시스템
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## 개요
+STPro 프로젝트의 웹/앱 서비스에 사용되는 다국어 텍스트(String)를 효율적으로 관리하고, 개발 프로세스와의 통합을 용이하게 하기 위한 웹 기반 시스템입니다. 다국어 추가/수정 작업을 간소화하고, 번역 품질을 일관되게 유지하며, 변경 이력을 투명하게 관리하는 것을 목표로 합니다.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## 주요 기능
+- 초기 데이터 일괄 등록 (JSON/CSV 업로드)
+- 다국어 목록 조회 및 검색 (Key, 한국어, 미국식 영어, 영국식 영어 등)
+- 신규 다국어 추가 및 기존 텍스트 수정
+- 전체 다국어 데이터 Export (언어별 JSON 등)
+- 변경 이력 자동 기록 및 조회
+- 지원 언어 확장 (ko, en-US, en-GB, 추후 추가 가능)
 
-## Add your files
+## 사용자 및 역할
+- **개발자**: 신규/수정 요청, Export 기능 활용
+- **프로젝트 관리자(Admin)**: 번역 상태 모니터링, 계정/언어 관리
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## 기술 스택
+### Backend
+- Node.js
+- TypeScript
+- Express.js
+- SQLite
 
-```
-cd existing_repo
-git remote add origin http://gitlab.a2tec.co.kr/b_iot-cloud/stpro-language-management.git
-git branch -M main
-git push -uf origin main
-```
+### Frontend
+- HTML
+- JavaScript
+- Tailwind CSS
 
-## Integrate with your tools
+### 패키지 매니저
+- yarn
 
-- [ ] [Set up project integrations](http://gitlab.a2tec.co.kr/b_iot-cloud/stpro-language-management/-/settings/integrations)
+## 프로젝트 구조
+- db-scheme.md: 데이터베이스 구조 문서
+- GEMINI.md: 제품 요구사항(PRD)
+- index.html: 프론트엔드 진입점
+- package.json: 프로젝트 설정 및 의존성
+- README.md: 프로젝트 소개 및 사용법
+- ux.md: UX 설계 문서
 
-## Collaborate with your team
+## 향후 고려사항
+- 사용자 인증 및 권한 관리
+- 번역 상태 관리(미번역/초벌/검수 등)
+- CI/CD 연동 및 자동화
+- 외부 API 제공
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+---
+문의: 프로젝트 담당자에게 연락
