@@ -1,262 +1,213 @@
 <!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STPro 다국어 관리 시스템</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* 다크모드 기본 설정 */
-      body {
-        background-color: #111827; /* gray-900 */
-        color: #d1d5db; /* gray-300 */
-      }
-    </style>
-  </head>
-  <body class="bg-gray-900 text-gray-300">
-    <div class="container mx-auto p-4">
-      <!-- 1. 상단 헤더 -->
-      <header
-        class="flex justify-between items-center mb-6 p-4 bg-gray-800 rounded-lg shadow-lg"
-      >
-        <h1 class="text-2xl font-bold text-white">STPro 다국어 관리 시스템</h1>
-        <div class="space-x-2">
-          <button
-            id="open-modal-btn"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-300"
-          >
-            새 키 추가
-          </button>
-          <button
-            class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-300"
-          >
-            일괄 가져오기
-          </button>
-          <button
-            class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-md transition duration-300"
-          >
-            전체 내보내기
-          </button>
-        </div>
-      </header>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STPro Language Management</title>
+  <link href="/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <div id="app" class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">다국어 관리 시스템</h1>
 
-      <!-- 2. 메인 콘텐츠 -->
-      <main class="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <!-- 2.1. 검색 바 -->
-        <div class="mb-6">
-          <div class="relative">
-            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-              <svg
-                class="w-5 h-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                ></path>
-              </svg>
-            </span>
-            <input
-              type="text"
-              placeholder="🔍 키 또는 내용으로 검색..."
-              class="w-full bg-gray-700 border border-gray-600 text-white rounded-md py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-          </div>
-        </div>
-
-        <!-- 2.2. 다국어 테이블 -->
-        <div class="overflow-x-auto">
-          <table class="min-w-full text-sm text-left text-gray-400">
-            <thead class="text-xs text-gray-300 uppercase bg-gray-700">
-              <tr>
-                <th scope="col" class="px-6 py-3">Key</th>
-                <th scope="col" class="px-6 py-3">한국어 (ko)</th>
-                <th scope="col" class="px-6 py-3">미국식 영어 (en-US)</th>
-                <th scope="col" class="px-6 py-3 text-center">작업</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                class="bg-gray-800 border-b border-gray-700 hover:bg-gray-600 transition duration-150"
-              >
-                <th
-                  scope="row"
-                  class="px-6 py-4 font-medium text-white whitespace-nowrap"
-                >
-                  common.button.save
-                </th>
-                <td class="px-6 py-4">
-                  <input
-                    type="text"
-                    value="저장"
-                    class="bg-transparent w-full focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 rounded px-2 py-1"
-                  />
-                </td>
-                <td class="px-6 py-4">
-                  <input
-                    type="text"
-                    value="Save"
-                    class="bg-transparent w-full focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 rounded px-2 py-1"
-                  />
-                </td>
-                <td class="px-6 py-4 text-center space-x-2">
-                  <button class="font-medium text-yellow-400 hover:underline">
-                    수정
-                  </button>
-                  <button class="font-medium text-gray-400 hover:underline">
-                    이력
-                  </button>
-                  <button class="font-medium text-red-500 hover:underline">
-                    삭제
-                  </button>
-                </td>
-              </tr>
-              <tr
-                class="bg-gray-800 border-b border-gray-700 hover:bg-gray-600 transition duration-150"
-              >
-                <th
-                  scope="row"
-                  class="px-6 py-4 font-medium text-white whitespace-nowrap"
-                >
-                  user.welcome
-                </th>
-                <td class="px-6 py-4">
-                  <input
-                    type="text"
-                    value="환영합니다."
-                    class="bg-transparent w-full focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 rounded px-2 py-1"
-                  />
-                </td>
-                <td class="px-6 py-4">
-                  <input
-                    type="text"
-                    value="Welcome"
-                    class="bg-transparent w-full focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 rounded px-2 py-1"
-                  />
-                </td>
-                <td class="px-6 py-4 text-center space-x-2">
-                  <button class="font-medium text-yellow-400 hover:underline">
-                    수정
-                  </button>
-                  <button class="font-medium text-gray-400 hover:underline">
-                    이력
-                  </button>
-                  <button class="font-medium text-red-500 hover:underline">
-                    삭제
-                  </button>
-                </td>
-              </tr>
-              <!-- 추가 데이터 행들... -->
-            </tbody>
-          </table>
-        </div>
-      </main>
-    </div>
-
-    <!-- 3. 새 키 추가 모달 -->
-    <div
-      id="add-key-modal"
-      class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50"
-    >
-      <div
-        class="bg-gray-800 rounded-lg shadow-xl p-8 w-full max-w-2xl transform transition-all"
-      >
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="text-2xl font-bold text-white">새 다국어 키 추가</h2>
-          <button id="close-modal-btn" class="text-gray-400 hover:text-white">
-            &times;
-          </button>
-        </div>
-        <form>
-          <div class="mb-4">
-            <label
-              for="key"
-              class="block text-sm font-medium text-gray-300 mb-1"
-              >Key</label
-            >
-            <input
-              type="text"
-              id="key"
-              name="key"
-              placeholder="예: common.button.confirm"
-              class="w-full bg-gray-700 border border-gray-600 text-white rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <div class="mb-4">
-            <label for="ko" class="block text-sm font-medium text-gray-300 mb-1"
-              >한국어 (ko)</label
-            >
-            <textarea
-              id="ko"
-              name="ko"
-              rows="3"
-              class="w-full bg-gray-700 border border-gray-600 text-white rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-          <div class="mb-6">
-            <label
-              for="en-us"
-              class="block text-sm font-medium text-gray-300 mb-1"
-              >미국식 영어 (en-US)</label
-            >
-            <textarea
-              id="en-us"
-              name="en-us"
-              rows="3"
-              class="w-full bg-gray-700 border border-gray-600 text-white rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-          <div class="flex justify-end space-x-4">
-            <button
-              type="button"
-              id="cancel-modal-btn"
-              class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-md transition duration-300"
-            >
-              취소
-            </button>
-            <button
-              type="submit"
-              class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-300"
-            >
-              저장
-            </button>
-          </div>
-        </form>
+    <!-- 컨트롤 영역 -->
+    <div class="flex justify-between mb-4">
+      <input type="text" v-model="search" @keyup.enter="fetchTranslations" placeholder="Search keys..." class="border p-2 rounded w-1/3">
+      <div>
+        <button @click="showAddModal = true" class="bg-blue-500 text-white px-4 py-2 rounded mr-2">Add New</button>
+        <button @click="exportData" class="bg-purple-500 text-white px-4 py-2 rounded mr-2">Export</button>
+        <button @click="showImportModal = true" class="bg-green-500 text-white px-4 py-2 rounded">Import</button>
       </div>
     </div>
 
-    <script>
-      // 모달 관련 스크립트
-      const modal = document.getElementById('add-key-modal');
-      const openModalBtn = document.getElementById('open-modal-btn');
-      const closeModalBtn = document.getElementById('close-modal-btn');
-      const cancelModalBtn = document.getElementById('cancel-modal-btn');
+    <!-- 다국어 테이블 -->
+    <div class="overflow-x-auto bg-white rounded shadow">
+      <table class="min-w-full">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="p-2">Key</th>
+            <th v-for="lang in languages" :key="lang" class="p-2">{{ lang }}</th>
+            <th class="p-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="t in translations" :key="t.id" class="border-b">
+            <td class="p-2 font-mono">
+              <span v-if="editingId !== t.id">{{ t.key }}</span>
+              <input v-else type="text" v-model="editingTranslation.key" class="border p-1 rounded w-full" disabled>
+            </td>
+            <td v-for="lang in languages" :key="lang" class="p-2">
+              <span v-if="editingId !== t.id">{{ t[lang] }}</span>
+              <input v-else type="text" v-model="editingTranslation[lang]" class="border p-1 rounded w-full">
+            </td>
+            <td class="p-2">
+              <div v-if="editingId !== t.id">
+                <button @click="startEditing(t)" class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Edit</button>
+                <button @click="showHistory(t.id)" class="bg-gray-500 text-white px-2 py-1 rounded">History</button>
+              </div>
+              <div v-else>
+                <button @click="saveChanges(t.id)" class="bg-green-500 text-white px-2 py-1 rounded mr-2">Save</button>
+                <button @click="cancelEditing" class="bg-gray-500 text-white px-2 py-1 rounded">Cancel</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      const openModal = () => modal.classList.remove('hidden');
-      const closeModal = () => modal.classList.add('hidden');
+    <!-- Add New Modal -->
+    <div v-if="showAddModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+      <div class="bg-white p-5 rounded-lg shadow-xl w-1/2">
+        <h3 class="text-lg font-bold mb-4">Add New Translation</h3>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Key</label>
+          <input type="text" v-model="newTranslation.key" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div v-for="lang in languages" :key="lang" class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">{{ lang }}</label>
+          <input type="text" v-model="newTranslation[lang]" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex justify-end">
+          <button @click="showAddModal = false" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
+          <button @click="addTranslation" class="bg-blue-500 text-white px-4 py-2 rounded">Add</button>
+        </div>
+      </div>
+    </div>
 
-      openModalBtn.addEventListener('click', openModal);
-      closeModalBtn.addEventListener('click', closeModal);
-      cancelModalBtn.addEventListener('click', closeModal);
+    <!-- History Modal -->
+    <div v-if="showHistoryModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+      <div class="bg-white p-5 rounded-lg shadow-xl w-3/4">
+        <h3 class="text-lg font-bold mb-4">History for Key: {{ historyKey }}</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border">
+            <thead>
+              <tr>
+                <th class="py-2 px-4 border-b">Changed At</th>
+                <th class="py-2 px-4 border-b">Changed By</th>
+                <th class="py-2 px-4 border-b">Language</th>
+                <th class="py-2 px-4 border-b">Old Text</th>
+                <th class="py-2 px-4 border-b">New Text</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="entry in historyData" :key="entry.id">
+                <td class="py-2 px-4 border-b">{{ new Date(entry.changed_at).toLocaleString() }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.changed_by }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.language }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.old_text }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.new_text }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex justify-end mt-4">
+          <button @click="showHistoryModal = false" class="bg-gray-500 text-white px-4 py-2 rounded">Close</button>
+        </div>
+      </div>
+    </div>
 
-      // 모달 외부 클릭 시 닫기
-      modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-          closeModal();
-        }
-      });
+    <!-- Import Modal -->
+    <div v-if="showImportModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+      <div class="bg-white p-5 rounded-lg shadow-xl w-1/2">
+        <h3 class="text-lg font-bold mb-4">Import Translations (JSON)</h3>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Select JSON File</label>
+          <input type="file" @change="handleFileUpload" accept=".json" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+        </div>
+        <div class="flex justify-end">
+          <button @click="showImportModal = false" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
+          <button @click="importData" :disabled="!selectedFile" class="bg-green-500 text-white px-4 py-2 rounded">Import</button>
+        </div>
+      </div>
+    </div>
 
-      // ESC 키로 닫기
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-          closeModal();
-        }
-      });
-    </script>
-  </body>
+    <!-- 다국어 테이블 -->
+    <div class="overflow-x-auto bg-white rounded shadow">
+      <table class="min-w-full">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="p-2">Key</th>
+            <th v-for="lang in languages" :key="lang" class="p-2">{{ lang }}</th>
+            <th class="p-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="t in translations" :key="t.id" class="border-b">
+            <td class="p-2 font-mono">
+              <span v-if="editingId !== t.id">{{ t.key }}</span>
+              <input v-else type="text" v-model="editingTranslation.key" class="border p-1 rounded w-full" disabled>
+            </td>
+            <td v-for="lang in languages" :key="lang" class="p-2">
+              <span v-if="editingId !== t.id">{{ t[lang] }}</span>
+              <input v-else type="text" v-model="editingTranslation[lang]" class="border p-1 rounded w-full">
+            </td>
+            <td class="p-2">
+              <div v-if="editingId !== t.id">
+                <button @click="startEditing(t)" class="bg-yellow-500 text-white px-2 py-1 rounded mr-2">Edit</button>
+                <button @click="showHistory(t.id)" class="bg-gray-500 text-white px-2 py-1 rounded">History</button>
+              </div>
+              <div v-else>
+                <button @click="saveChanges(t.id)" class="bg-green-500 text-white px-2 py-1 rounded mr-2">Save</button>
+                <button @click="cancelEditing" class="bg-gray-500 text-white px-2 py-1 rounded">Cancel</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add New Modal -->
+    <div v-if="showAddModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+      <div class="bg-white p-5 rounded-lg shadow-xl w-1/2">
+        <h3 class="text-lg font-bold mb-4">Add New Translation</h3>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Key</label>
+          <input type="text" v-model="newTranslation.key" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div v-for="lang in languages" :key="lang" class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">{{ lang }}</label>
+          <input type="text" v-model="newTranslation[lang]" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="flex justify-end">
+          <button @click="showAddModal = false" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
+          <button @click="addTranslation" class="bg-blue-500 text-white px-4 py-2 rounded">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Modal -->
+    <div v-if="showHistoryModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
+      <div class="bg-white p-5 rounded-lg shadow-xl w-3/4">
+        <h3 class="text-lg font-bold mb-4">History for Key: {{ historyKey }}</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white border">
+            <thead>
+              <tr>
+                <th class="py-2 px-4 border-b">Changed At</th>
+                <th class="py-2 px-4 border-b">Changed By</th>
+                <th class="py-2 px-4 border-b">Language</th>
+                <th class="py-2 px-4 border-b">Old Text</th>
+                <th class="py-2 px-4 border-b">New Text</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="entry in historyData" :key="entry.id">
+                <td class="py-2 px-4 border-b">{{ new Date(entry.changed_at).toLocaleString() }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.changed_by }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.language }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.old_text }}</td>
+                <td class="py-2 px-4 border-b">{{ entry.new_text }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex justify-end mt-4">
+          <button @click="showHistoryModal = false" class="bg-gray-500 text-white px-4 py-2 rounded">Close</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script type="module" src="/js/main.js"></script>
+</body>
 </html>
