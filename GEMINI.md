@@ -65,9 +65,9 @@ STPro 프로젝트의 웹/앱 서비스에 사용되는 다국어 텍스트(Stri
 -   Database: SQLite
 
 ### Frontend
--   HTML
--   JavaScript
--   CSS: Tailwind CSS
+-   Vue3 Framework
+-   TypeScript
+-   TailwindCSS Framework
 
 ### Package Manager
 -   yarn
